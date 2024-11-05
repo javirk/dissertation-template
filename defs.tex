@@ -1,0 +1,41 @@
+%!TEX root = main.tex
+
+\newif\ifdraft
+\newif\ifdebug
+% \draftfalse
+\drafttrue
+\debugfalse
+
+\mathtoolsset{centercolon}
+
+\definecolor{orange}{rgb}{1,0.5,0}
+\definecolor{pink}{rgb}{0.98, 0.38, 0.5}
+\definecolor{darkgreen}{rgb}{0.055, 0.490, 0.016} 
+
+\ifdraft
+ \usepackage[normalem]{ulem}
+ \newcommand{\VP}[1]{{\color{pink} VP: #1}}
+ \newcommand{\vp}[1]{{\color{pink}#1}}
+\else
+ \newcommand{\sout}[1]{}
+ \newcommand{\VP}[1]{{\color{pink}{}}}
+ \newcommand{\vp}[1]{#1}
+\fi
+
+\ifdebug
+    \usepackage{layout}
+    \usepackage{graphics,showframe}
+\fi
+
+\newcommand{\rev}[1]{{\color{magenta}#1}}
+
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+\DeclarePairedDelimiterX{\infdivx}[2]{(}{)}{%
+  #1\;\delimsize\|\;#2%
+}
+\newcolumntype{S}{>{\centering\arraybackslash}p{1.05cm}}
+\newcolumntype{L}{>{\small}l}
+\newcolumntype{T}{>{\centering\arraybackslash}p{1.1cm}}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+\definecolor{shadecolor}{rgb}{0.95,0.95,0.95}

@@ -1,0 +1,97 @@
+\documentclass[
+    10pt,
+	colorful,
+	boxey,
+ a4paper,
+ %parskip
+]{tufte-style-thesis}
+
+\input{imports}
+\input{defs}
+
+\usepackage{geometry}
+
+\geometry{
+  textwidth=320pt, % main text block
+  marginparsep=20pt,
+  marginparwidth=110pt
+}
+\oddsidemargin=0pt
+\evensidemargin=125pt
+
+\addbibresource{refs.bib} % for biblatex
+
+\author{It's me}
+\title{The best thesis ever}
+\university{University of My House}
+\person{Supervisor}{Prof. Dr. One}{A Faculty}
+\person{Co-advisor}{Prof. Dr. Two}{Another Faculty}
+\date{September 24, 2024}
+
+\begin{document}
+
+\ifdebug
+    \layout
+\fi
+
+% \maketitle
+
+\frontmatter
+% \includepdf[pages={1}]{frontmatter/FrontPage.pdf}
+\cleardoublepage
+\pagenumbering{Roman}
+\pagestyle{empty}
+\begin{wide}
+\include{frontmatter/titlepage}
+\end{wide}
+
+\include{frontmatter/publishing_words}
+\include{frontmatter/abstract}
+\include{frontmatter/epigraph}
+\include{frontmatter/acknowledgements}
+
+\tableofcontents
+\listoffigures
+\listoftables
+%\listoflistings
+
+\clearpage
+\pagestyle{fancy}
+
+
+\mainmatter
+\pagenumbering{arabic}
+
+\part{Part 1}
+\import{ch1_introduction/}{introduction}
+
+% \backmatter
+
+\setstretch{1}
+\thispagestyle{empty}
+\printbibliography
+\cleardoublepage
+
+%%%%%%%%% APPENDICES
+\part*{Appendix}
+\appendix
+
+\setcounter{table}{0}
+\setcounter{figure}{0}
+\setcounter{section}{0}
+\setcounter{chapter}{0}
+
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+
+\import{appendices/chapter1}{app_intro.tex}
+
+\cleardoublepage
+
+
+\thispagestyle{empty}
+\import{backmatter}{originality}
+\cleardoublepage
+% \includepdf[pages=-]{backmatter/cv_thesis.pdf}
+
+\end{document}
